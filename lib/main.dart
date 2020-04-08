@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import './drawer.dart';
+import './abyss.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +17,11 @@ class MyApp extends StatelessWidget {
             ? Colors.grey[50]
             : null,
       ),
+      routes: <String, WidgetBuilder>{
+        '/abyss': (BuildContext ctx) => AbyssRealm('Abyss'),
+        '/asgard': (BuildContext ctx) => AbyssRealm('Asgard'),
+        '/earth': (BuildContext ctx) => AbyssRealm('Earth'),
+      },
     );
   }
 }

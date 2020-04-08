@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 
+// import './abyss.dart';
+
 class SideDrawer extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext ctx) {
+    void redirect(String route) {
+      Navigator.of(ctx).pop();
+      Navigator.of(ctx).pushNamed(route);
+      // Other Way of routing, best with same page and multiple routes
+      // Comment the routes from the main.dart file
+
+      // Navigator.of(ctx).pop();
+      // Navigator.of(ctx).push(
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) => AbyssRealm(route),
+      //   ),
+      // );
+    }
+
     return Container(
       child: Drawer(
         child: ListView(
@@ -21,24 +37,27 @@ class SideDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Page 1'),
-              trailing: Icon(Icons.arrow_upward),
+              title: Text('Visit Abyss'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () => redirect('/abyss'),
             ),
             Divider(),
             ListTile(
-              title: Text('Page 2'),
-              trailing: Icon(Icons.arrow_upward),
+              title: Text('Visit Asgard'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () => redirect('/asgard'),
             ),
             Divider(),
             ListTile(
-              title: Text('Page 3'),
-              trailing: Icon(Icons.arrow_upward),
+              title: Text('Return to earth'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () => redirect('/earth'),
             ),
             Divider(),
             ListTile(
               title: Text('Close'),
               trailing: Icon(Icons.close),
-              onTap: () => Navigator.of(context).pop(),
+              onTap: () => Navigator.of(ctx).pop(),
             ),
           ],
         ),

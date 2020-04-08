@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: defaultTargetPlatform == TargetPlatform.iOS
+            ? Colors.grey[50]
+            : null,
       ),
     );
   }
